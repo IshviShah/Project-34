@@ -1,13 +1,13 @@
 //Create variables here
-var dog, hapDog;
+var dog, dogImg, hapDog, hapDogImg;
 var database;
 var foodS, foodStock;
 
 function preload()
 {
   //load images here
-  dog = loadImage("images/doglmg.png");
-  hapDog = loadImage("images/doglmg1.png");
+  dogImg = loadImage("dogImg.png");
+  hapDogImg = loadImage("dogImg1.png");
 }
 
 function setup() {
@@ -15,7 +15,7 @@ function setup() {
   createCanvas(500, 500);
   
   dog = createSprite(250,250,50,50);
-  dog.addImage(dog);
+  dog.addImage(dogImg);
   foodStock = database.ref('Food');
   foodStock.on("value",readStock);
   
@@ -27,7 +27,7 @@ function draw() {
 
   if(keyWentDown(UP_ARROW)){
     writeStock(foodS);
-    dog.addImage(hapDog);
+    dog.addImage(hapDogImg);
   }
   drawSprites();
   //add styles here
