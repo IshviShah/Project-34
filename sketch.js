@@ -1,21 +1,22 @@
 //Create variables here
-var dog, dogImg, hapDog, hapDogImg;
+var dog, hapDog;
 var database;
 var foodS, foodStock;
 
 function preload()
 {
   //load images here
-  dogImg = loadImage("dogImg.png");
-  hapDogImg = loadImage("dogImg1.png");
+  dogImg = loadImage("images/dogImg.png");
+  hapDogImg = loadImage("images/dogImg1.png");
 }
 
 function setup() {
   database = firebase.database();
   createCanvas(500, 500);
   
-  dog = createSprite(250,250,50,50);
+  dog = createSprite(250,300,50,50);
   dog.addImage(dogImg);
+  dog.scale = 0.2;
   foodStock = database.ref('Food');
   foodStock.on("value",readStock);
   
@@ -35,6 +36,11 @@ function draw() {
 }
 function readStock(data){
   foodS = data.val();
+
+    noStroke();
+    textSize(35)
+    fill("black")
+    text("Food Remaining:  " + foodStock, 250, 250)
 }
 
 function writeStock(x){
