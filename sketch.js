@@ -32,15 +32,15 @@ function draw() {
   }
   drawSprites();
   //add styles here
+    noStroke();
+    textSize(20)
+    fill("black")
+    text("Food Remaining:  " + foodStock, 20, 200)
 
 }
 function readStock(data){
   foodS = data.val();
 
-    noStroke();
-    textSize(35)
-    fill("black")
-    text("Food Remaining:  " + foodStock, 250, 250)
 }
 
 function writeStock(x){
