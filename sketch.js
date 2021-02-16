@@ -35,7 +35,7 @@ function draw() {
     noStroke();
     textSize(20)
     fill("black")
-    text("Food Remaining:  " + foodStock, 20, 200)
+    text("Food Remaining:  " + foodS, 20, 200)
 
 }
 function readStock(data){
